@@ -31,7 +31,6 @@ public class BookDistribute {
 
         // 二分的最大值为所有页数的总和
         int h = pages[0];
-
         // 二分的最小值是书本页数的最大值
         int l = pages[0];
         for (int i = 1; i < bookCount; i++) {
