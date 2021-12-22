@@ -12,37 +12,32 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class ArrayAdd {
+public class ArrayAdd_wa {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int t = scan.nextInt();
         while ((--t)>=0) {
             int size = scan.nextInt();
             int k = scan.nextInt();
-            if(size<4){
-                System.out.println();
-                scan.close();
-                return;
-            }
 
             int [] entry = new int[size];
             for (int i = 0; i <size; i++) {
                 entry[i] = scan.nextInt();
             }
             List<List<Integer>> res = fourSum(entry, k);
-            System.out.println();
-            for(int i=0;i<res.size();i++){
-                List<Integer> ans = res.get(i);
-                System.out.print(ans.get(0)+" "+ans.get(1)+" "+ans.get(2)+" "+ans.get(3)+" $");
-            }
+            print(res);
         }
         scan.close();
     }
 
     public static List<List<Integer>> fourSum(int[] nums,int k) {
         int n = nums.length;
+
         Arrays.sort(nums);
         List<List<Integer>> ans = new ArrayList<>();
+        if(nums.length<4){
+            return ans;
+        }
         // 枚举 a
         for (int first = 0; first < n; ++first) {
             // 需要和上一次枚举的数不相同
@@ -83,5 +78,15 @@ public class ArrayAdd {
             }
         }
         return ans;
+    }
+
+    private static void print(List<List<Integer>> res) {
+        for (List<Integer> subArr : res) {
+            for (Integer element : subArr) {
+                System.out.print(element + " ");
+            }
+            System.out.print("$");
+        }
+        System.out.print("\n");
     }
 }

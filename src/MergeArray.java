@@ -14,7 +14,6 @@ public class MergeArray {
         while ((--t)>=0) {
             int k = scan.nextInt();
             int[][] arr = new int[k][k];
-            System.out.println();
             for (int j = 0; j < k; j++) {
                 for (int l = 0; l < k; l++) {
                     arr[j][l] = scan.nextInt();
@@ -26,7 +25,7 @@ public class MergeArray {
     }
     static void problem(int[][] arr) {
         int[] ans = solution(arr);
-        println(ans);
+        print(ans);
     }
 
     static int[] solution(int[][] arr) {
@@ -60,9 +59,9 @@ public class MergeArray {
         return ans;
     }
 
-    private static void println(int[] arr) {
+    private static void print(int[] arr) {
         StringBuilder sb = getStringBuilder(arr);
-        System.out.println(sb.toString());
+        System.out.print(sb.toString()+"\n");
     }
 
     private static StringBuilder getStringBuilder(int[] arr) {

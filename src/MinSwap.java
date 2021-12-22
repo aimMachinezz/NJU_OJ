@@ -17,11 +17,10 @@ public class MinSwap {
         while ((--t)>=0) {
             int k = scan.nextInt();
             int[] arr = new int[k];
-            System.out.println();
             for (int i = 0; i < k; i++) {
                 arr[i] = scan.nextInt();
             }
-            System.out.println(solution(arr));
+            System.out.print(solution(arr)+"\n");
         }
         scan.close();
     }
