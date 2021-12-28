@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @Date 2021/12/27 19:51
  * @Created by XJM
  */
-public class NearestPoint {
+public class NearestPoint_wa {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int T = Integer.parseInt(scanner.nextLine());
@@ -18,6 +18,7 @@ public class NearestPoint {
             pointList = toIntArray(point_str);
             ArrayList<double[]> res = new ArrayList<>();
             res = solution(pointList);
+            sort(res);
             for (int j = 0; j <res.size()-1; j=j+2) {
                 if(j!= res.size()-2){
                     System.out.print(res.get(j)[0] + " " + res.get(j)[1] +","+res.get(j+1)[0]+" "+res.get(j+1)[1]+",");
@@ -45,8 +46,10 @@ public class NearestPoint {
     public static void sort(ArrayList<double []> pointList){
         for(int i=0;i<pointList.size();i++){
             for(int j=0;j< pointList.size()-i-1;j++){
+                //System.out.println(pointList.get(j)[0]+" "+pointList.get(j+1)[0]);
                 if(pointList.get(j)[0]>pointList.get(j+1)[0]){
                     swap(pointList.get(j),pointList.get(j+1));
+                    //System.out.println("after"+pointList.get(j)[0]+" "+pointList.get(j+1)[0]);
                 }
                 if(pointList.get(j)[0]==pointList.get(j+1)[0]){
                     if (pointList.get(j)[1]>pointList.get(j+1)[1])
@@ -54,6 +57,7 @@ public class NearestPoint {
                 }
             }
         }
+        //System.out.println(pointList.get(3)[0]);
     }
     public static void swap(double[]mark1, double []mark2){
         for(int i=0;i<mark1.length;i++){
@@ -64,20 +68,37 @@ public class NearestPoint {
     }
     public static ArrayList<double []> solution(ArrayList<double []> pointList){
         ArrayList<double []> res = new ArrayList<>();
-        sort(pointList);
+        if(pointList.size()==1){
+            return res;
+        }
+        if(pointList.size()==2){
+            return pointList;
+        }
         double min=Integer.MAX_VALUE;
-        for(int i=0;i<pointList.size()-1;i++){
-            double dis2 = Math.pow((pointList.get(i+1)[0]-pointList.get(i)[0]),2)+Math.pow((pointList.get(i+1)[1]-pointList.get(i)[1]),2);
-            double dis = Math.pow(dis2,0.5);
-            min=Math.min(min,dis);
+        for(int i=0;i<pointList.size();i++){
+            for(int j=i+1;j<pointList.size();j++){
+                double dis2 = Math.pow((pointList.get(j)[0]-pointList.get(i)[0]),2)+Math.pow((pointList.get(j)[1]-pointList.get(i)[1]),2);
+                double dis = Math.pow(dis2,0.5);
+                min=Math.min(min,dis);
+            }
+
         }
         for(int i=0;i<pointList.size()-1;i++){
-            double dis2 = Math.pow((pointList.get(i+1)[0]-pointList.get(i)[0]),2)+Math.pow((pointList.get(i+1)[1]-pointList.get(i)[1]),2);
-            double dis = Math.pow(dis2,0.5);
-            if(dis==min){
-                res.add(pointList.get(i));
-                res.add(pointList.get(i+1));
+            for(int j=i+1;j<pointList.size();j++){
+                double dis2 = Math.pow((pointList.get(j)[0]-pointList.get(i)[0]),2)+Math.pow((pointList.get(j)[1]-pointList.get(i)[1]),2);
+                double dis = Math.pow(dis2,0.5);
+                if(dis==min){
+                    double []temp =new double[2];
+                    temp[0]=pointList.get(i)[0];
+                    temp[1]=pointList.get(i)[1];
+                    double []temp1 =new double[2];
+                    temp1[0]=pointList.get(j)[0];
+                    temp1[1]=pointList.get(j)[1];
+                    res.add(temp);
+                    res.add(temp1);
+                }
             }
+
         }
         return res;
     }
