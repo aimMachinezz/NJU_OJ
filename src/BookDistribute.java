@@ -58,12 +58,12 @@ public class BookDistribute {
 
         for (int i = 0; i < pages.length; i++) {
             crrSize += pages[i];
-            System.out.println("crrsize:"+crrSize);
+            //System.out.println("crrsize:"+crrSize);
             if (crrSize > bucketSize) {
                 crrSize = pages[i];
 
                 ++bucketCount;
-                System.out.println(bucketSize+" "+crrSize+" "+bucketCount);
+                //System.out.println(bucketSize+" "+crrSize+" "+bucketCount);
             }
         }
         return bucketCount;

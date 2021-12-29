@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,9 +22,11 @@ public class NearestPoint_wa {
             sort(res);
             for (int j = 0; j <res.size()-1; j=j+2) {
                 if(j!= res.size()-2){
-                    System.out.print(res.get(j)[0] + " " + res.get(j)[1] +","+res.get(j+1)[0]+" "+res.get(j+1)[1]+",");
+                    System.out.print(BigDecimal.valueOf(res.get(j)[0]).stripTrailingZeros().toPlainString() + " " + BigDecimal.valueOf(res.get(j)[1]).stripTrailingZeros().toPlainString()
+                            +","+BigDecimal.valueOf(res.get(j+1)[0]).stripTrailingZeros().toPlainString()+" "+BigDecimal.valueOf(res.get(j+1)[1]).stripTrailingZeros().toPlainString()+",");
                 }else {
-                    System.out.print(res.get(j)[0] + " " + res.get(j)[1] +","+res.get(j+1)[0]+" "+res.get(j+1)[1]);
+                    System.out.print(BigDecimal.valueOf(res.get(j)[0]).stripTrailingZeros().toPlainString() + " " + BigDecimal.valueOf(res.get(j)[1]).stripTrailingZeros().toPlainString()
+                            +","+BigDecimal.valueOf(res.get(j+1)[0]).stripTrailingZeros().toPlainString()+" "+BigDecimal.valueOf(res.get(j+1)[1]).stripTrailingZeros().toPlainString());
                 }
 
             }
