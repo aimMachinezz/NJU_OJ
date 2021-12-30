@@ -16,7 +16,7 @@ public class BFS {
             String []para = sc.nextLine().split(" ");
             int n = Integer.parseInt(para[0]);
             char start = para[1].charAt(0);
-            String vetex = sc.nextLine();
+            String []vertex = sc.nextLine().split(" ");
             int [][]graph = new int[n][n];
             for(int i = 0;i < n;i++){
                 String []temp = sc.nextLine().split(" ");
@@ -27,7 +27,7 @@ public class BFS {
         }
     }
 
-    public static void bfs(int[][] graph){
+    public static void bfs(int[][] graph, String vertex){
 
     }
 }
