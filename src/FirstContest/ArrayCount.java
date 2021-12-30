@@ -1,7 +1,9 @@
+package FirstContest;
+
 import java.util.*;
 
 /**
- * @Classname ArrayCount
+ * @Classname FirstContest.ArrayCount
  * @Description TODO
  * @Date 2021/12/29 9:56
  * @Created by XJM

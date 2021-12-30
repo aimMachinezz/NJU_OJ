@@ -1,7 +1,9 @@
+package FirstContest;
+
 import java.util.Scanner;
 
 /**
- * @Classname CountSort
+ * @Classname FirstContest.CountSort
  * @Description TODO
  * @Date 2021/12/23 15:36
  * @Created by XJM

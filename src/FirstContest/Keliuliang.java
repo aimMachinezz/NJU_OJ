@@ -1,8 +1,10 @@
+package FirstContest;
+
 import java.util.Scanner;
 
 /**
  * @author XJM
- * @title: Keliuliang
+ * @title: FirstContest.Keliuliang
  * @projectName NJU_OJ
  * @description: TODO
  * @date 2021/12/2214:18

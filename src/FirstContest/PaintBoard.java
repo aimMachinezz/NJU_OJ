@@ -1,8 +1,10 @@
+package FirstContest;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @Classname PaintBoard
+ * @Classname FirstContest.PaintBoard
  * @Description TODO
  * @Date 2021/12/29 11:16
  * @Created by XJM

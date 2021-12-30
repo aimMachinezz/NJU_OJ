@@ -1,7 +1,9 @@
+package FirstContest;
+
 import java.util.Scanner;
 
 /**
- * @Classname MergeSort
+ * @Classname FirstContest.MergeSort
  * @Description TODO
  * @Date 2021/12/26 15:38
  * @Created by XJM

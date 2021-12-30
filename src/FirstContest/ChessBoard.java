@@ -1,8 +1,10 @@
+package FirstContest;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @Classname ChessBoard
+ * @Classname FirstContest.ChessBoard
  * @Description TODO
  * @Date 2021/12/27 19:36
  * @Created by XJM

@@ -1,9 +1,11 @@
+package FirstContest;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Classname ShellSort
+ * @Classname FirstContest.ShellSort
  * @Description TODO
  * @Date 2021/12/26 16:05
  * @Created by XJM

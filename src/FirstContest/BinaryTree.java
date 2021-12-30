@@ -1,10 +1,12 @@
+package FirstContest;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Classname BinaryTree
+ * @Classname FirstContest.BinaryTree
  * @Description TODO
  * @Date 2021/12/30 10:41
  * @Created by XJM

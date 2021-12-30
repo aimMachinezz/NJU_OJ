@@ -1,4 +1,4 @@
-/**
+package FirstContest; /**
  * @author XJM
  * @title: test
  * @projectName NJU_OJ

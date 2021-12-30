@@ -1,5 +1,5 @@
-/**
- * @Classname NearestPoint_ac
+package FirstContest; /**
+ * @Classname FirstContest.NearestPoint_ac
  * @Description TODO
  * @Date 2021/12/29 9:36
  * @Created by XJM

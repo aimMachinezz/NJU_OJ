@@ -1,3 +1,5 @@
+package FirstContest;
+
 import java.util.Scanner;
 
 /**

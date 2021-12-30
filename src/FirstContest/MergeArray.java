@@ -1,4 +1,4 @@
-/**
+package FirstContest; /**
  * @author XJM
  * @title: mergeArray
  * @projectName NJU_OJ

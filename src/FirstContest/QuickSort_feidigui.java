@@ -1,8 +1,10 @@
+package FirstContest;
+
 import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * @Classname QuickSort_feidigui
+ * @Classname FirstContest.QuickSort_feidigui
  * @Description TODO
  * @Date 2021/12/23 16:42
  * @Created by XJM

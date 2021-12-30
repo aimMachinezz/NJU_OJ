@@ -1,7 +1,9 @@
+package FirstContest;
+
 import java.util.Scanner;
 
 /**
- * @Classname SequenceNumberPower
+ * @Classname FirstContest.SequenceNumberPower
  * @Description TODO
  * @Date 2021/12/30 10:06
  * @Created by XJM

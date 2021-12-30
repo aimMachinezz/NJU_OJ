@@ -1,6 +1,6 @@
-/**
+package FirstContest; /**
  * @author XJM
- * @title: Marks
+ * @title: FirstContest.Marks
  * @projectName NJU_OJ
  * @description: TODO
  * @date 2021/12/2214:18
