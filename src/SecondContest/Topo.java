@@ -27,60 +27,40 @@ public class Topo {
     输出拓扑排序解的个数。
      */
 
-    private static final int BEGIN_EDGE_INDEX = 0;
-    private static final int END_EDGE_INDEX = 1;
-
-    private static final int EDGE = 1;
-    private static final int NOT_EDGE = 0;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
             int t = Integer.parseInt(scanner.nextLine());
-            for (int i = 0; i < t; i++) {
+            while(t-->0) {
                 String[] edges = scanner.nextLine().split(",");
                 Set<String> vertex = new HashSet<>();
-                for (int j = 0;j < edges.length;j++) {
-                    String edge = edges[j];
-                    String[] v = edge.split(" ");
-                    if(j==0 && v.length!=2){
-                        if(Integer.parseInt(v[0])==1){
-                            System.out.println(1);
-                            return;
-                        }
-                        if(Integer.parseInt(v[0])<1){
-                            System.out.println(0);
-                            return;
-                        }
-                        vertex.add(v[1]);
-                        vertex.add(v[2]);
-                    }else {
-                        vertex.add(v[BEGIN_EDGE_INDEX]);
-                        vertex.add(v[END_EDGE_INDEX]);
-                    }
+                String[] v1 = edges[0].split(" ");
+                vertex.add(v1[1]);
+                vertex.add(v1[2]);
+                for (int j = 1;j < edges.length;j++) {
+                    String[] v = edges[j].split(" ");
+                    vertex.add(v[0]);
+                    vertex.add(v[1]);
 
                 }
+
                 int n = vertex.size();
 
                 //邻接矩阵
                 int[][] graph = new int[n][n];
                 //记录所有顶点的入度
                 int[] inDegree = new int[n];
+                int x1 = v1[1].charAt(0) - 'a';
+                int y1 = v1[2].charAt(0) - 'a';
+                graph[x1][y1] = 1;
+                inDegree[y1]++;
+                for (int j = 1;j < edges.length;j++) {
+                    String[] v = edges[j].split(" ");
+                    int x = v[0].charAt(0) - 'a';
+                    int y = v[1].charAt(0) - 'a';
 
-                for (int j = 0;j < edges.length;j++) {
-                    String edge = edges[j];
-                    int x;
-                    int y;
-                    String[] v = edge.split(" ");
-                    if(j == 0 && v.length!=2){
-                        x = v[1].charAt(0) - 'a';
-                        y = v[2].charAt(0) - 'a';
-                    }else {
-                        x = v[BEGIN_EDGE_INDEX].charAt(0) - 'a';
-                        y = v[END_EDGE_INDEX].charAt(0) - 'a';
-                    }
-
-                    graph[x][y] = EDGE;
-                    ++inDegree[y];
+                    graph[x][y] = 1;
+                    inDegree[y]++;
                 }
 
                 //记录入度为0的点
@@ -92,11 +72,10 @@ public class Topo {
                 }
                 //标志节点是否访问，即是否已加入拓扑队列中
                 boolean[] isVisited = new boolean[n];
-                Arrays.fill(isVisited,false);
                 //存放所有拓扑排序结果
                 List<List<Integer>> res = new ArrayList<>();
                 topo(graph, inDegree, zeros, isVisited, new ArrayList<Integer>(), res);
-                System.out.println(res.size());
+                System.out.print(res.size()+"\n");
             }
 
     }
@@ -118,41 +97,40 @@ public class Topo {
         for (int i = 0; i < zeros.size(); i++) {
             int index = zeros.get(i);
 
-            if (isVisited[index]) {
-                continue;
-            }
-
-            //将顶点插入拓扑排序中
-            list.add(index);
-            isVisited[index] = true;
-            //记录删去的边的终点
-            List<Integer> deletedEdge = new ArrayList<>();
-            //记录新的入度为0的顶点个数
-            int cnt = 0;
-            //将index顶点出发的边删除
-            for (int j = 0; j < graph.length; j++) {
-                if (graph[index][j] == EDGE) {
-                    deletedEdge.add(j);
-                    inDegree[j]--;
-                    graph[index][j] = NOT_EDGE;
-                    if (inDegree[j] == 0) {
-                        zeros.add(j);
-                        cnt++;
+            if(isVisited[index] == false){
+                //将顶点插入拓扑排序中
+                list.add(index);
+                isVisited[index] = true;
+                //记录删去的边的终点
+                List<Integer> deletedEdge = new ArrayList<>();
+                //记录新的入度为0的顶点个数
+                int cnt = 0;
+                //将index顶点出发的边删除
+                for (int j = 0; j < graph.length; j++) {
+                    if (graph[index][j] == 1) {
+                        deletedEdge.add(j);
+                        inDegree[j]--;
+                        graph[index][j] = 0;
+                        if (inDegree[j] == 0) {
+                            zeros.add(j);
+                            cnt++;
+                        }
                     }
                 }
+                topo(graph, inDegree, zeros, isVisited, list, res);
+                //将删除的边恢复，将点的访问状态重置
+                isVisited[index] = false;
+                list.remove(list.size() - 1);
+                for (int j = 0; j < cnt; j++) {
+                    zeros.remove(zeros.size() - 1);
+                }
+                for (int j=0;j<deletedEdge.size();j++) {
+                    graph[index][deletedEdge.get(j)] = 1;
+                    inDegree[deletedEdge.get(j)]++;
+                }
             }
-            topo(graph, inDegree, zeros, isVisited, list, res);
-            //将删除的边恢复，将点的访问状态重置
-            isVisited[index] = false;
-            list.remove(list.size() - 1);
-            for (int j = 0; j < cnt; j++) {
-                zeros.remove(zeros.size() - 1);
             }
-            for (Integer endIndex : deletedEdge) {
-                graph[index][endIndex] = 1;
-                inDegree[endIndex]++;
-            }
-        }
+
 
     }
 }
