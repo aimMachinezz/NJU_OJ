@@ -20,9 +20,9 @@ public class Searching_4 {
             }
             double []res = solution(arr);
             for (int i = 0;i < res.length-1 ;i++){
-                System.out.print(res[i]+" ");
+                System.out.print(String.format("%.2f", res[i]) + " ");
             }
-            System.out.println(res[res.length-1]);
+            System.out.println(String.format("%.2f", res[res.length-1]));
         }
 
     }
@@ -33,9 +33,9 @@ public class Searching_4 {
         for(int i = 0;i < arr.length - 1;i++){
             boolean flag = false;
             double left = arr[i], right = arr[i + 1];
-            double mid = (left + right) / 2.0;
-            double force = getForce(arr, mid);
             while(left < right){
+                double mid = (left + right) / 2.0;
+                double force = getForce(arr, mid);
                 if (Math.abs(force) < error) {
                     res[i] = mid;
                     flag = true;
@@ -45,7 +45,6 @@ public class Searching_4 {
                 } else {
                     right = mid;
                 }
-                System.out.println(force);
             }
             if(!flag){
                 res[i] = left;
@@ -68,6 +67,7 @@ public class Searching_4 {
             res+=dis[i];
         }
         return res;
+
     }
 }
 
