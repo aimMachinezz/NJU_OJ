@@ -7,6 +7,7 @@ package FirstContest; /**
  */
 import java.util.*;
 import java.util.Scanner;
+//成绩排序
 public class Marks {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

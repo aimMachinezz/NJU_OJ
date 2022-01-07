@@ -11,6 +11,18 @@ import java.util.Scanner;
  * @Date 2021/12/30 10:41
  * @Created by XJM
  */
+/*
+    Description
+    Given a Complete Binary tree, print the level order traversal in sorted order.
+
+    Input
+    The first line of the input contains integer T denoting the number of test cases. For each test case,
+    the first line takes an integer n denoting the size of array i.e number of nodes followed by n-space separated integers denoting the nodes of the tree in level order fashion.(1<=T<=100；1<=n<=10^5）
+
+    Output
+    For each test case, the output is the level order sorted tree.
+    ( Note: For every level, we only print distinct elements.)
+     */
 public class BinaryTree {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

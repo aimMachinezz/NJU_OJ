@@ -8,6 +8,16 @@ import java.util.Scanner;
  * @Date 2021/12/23 15:16
  * @Created by XJM
  */
+/*
+    Description
+    实现冒泡排序。
+
+    Input
+    输入的每一行表示一个元素为正整数的数组，所有值用空格隔开，第一个值为数值长度，其余为数组元素值。
+
+    Output
+    输出的每一行为排序结果，用空格隔开，末尾不要空格。
+     */
 public class BubbleSort {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
